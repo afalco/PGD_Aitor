@@ -1,0 +1,44 @@
+\section{Introduction}
+
+%%%% Introducción general
+
+
+Today, one of the most limiting problems in technological development is data processing and storage capacity. With the development of computers in the last 20 years, calculation and simulation speeds have been achieved that seemed utopian, but even so, they are still not enough. Therefore, improvement in the field of numerical methods plays a crucial role in this area. One of the most interesting methods of integrating partial derivative equations is the Newmark method, which we will talk about later.
+
+
+The Newmark method is a second-order numerical integration method used to solve certain differential equations. It is widely used in the numerical evaluation of the dynamic response of structures and solids, as well as in finite element analysis to model dynamic systems. The method is named after Nathan M. Newmark, a former professor of Civil Engineering at the University of Illinois at Urbana-Champaign, who developed it in 1959 for use in structural dynamics.
+
+The main problem with Newmark's method is that its equations are coupled, which means that they must be solved sequentially. This generates that the computational cost is higher for very large discretizations, making certain problems unapproachable with this method. Therefore, the tensorization of the equations of the Newmark method is proposed. In this way, it is possible to express the complete system of equations in a matrix form. When obtaining this matrix system, a GROUA (Greedy Rank-One Update Algorithm) can be applied, which is a method that allows the equations to be decoupled, so that for very large discretizations, the computational cost is considerably reduced. 
+
+
+The GROUA is based on the PGD (Proper Generalized Decomposition) numerical method, which is an iterative numerical method to solve boundary value problems (PVF), that is, partial differential equations restricted by a set of boundary conditions, such as Poisson's equation or Laplace's equation.
+
+The PGD algorithm calculates an approximation of the solution of the PVF by successive enrichment. This means that, at each iteration, a new component (or mode) is calculated and added to the approximation. In principle, the more modes obtained, the closer the approximation is to its theoretical solution.
+
+By selecting only the most relevant PGD modes, a reduced order model of the solution is obtained. Therefore, it can be said that PGD is an algorithm for reducing the dimensions of the problem, which allows decoupling these dimensions in the case that concerns us.
+
+
+%%%% Hipótesis
+
+ If we talk about Newmark's method features, we can say that is presented as a useful tool in the numerical resolution of partial derivative equations. So tensorizing this method to obtain a matrix system can have certain advantages:
+
+\begin{itemize}
+
+    \item Offers a more compact and general view of discretized equations.
+    
+    \item  It allows to implement a GROUA method to be able to solve the matrix equations.
+    
+\end{itemize}  
+
+In turn, being able to use a GROUA algorithm has two very important advantages:
+
+\begin{itemize}
+    
+    \item Decouples the terms of the equations, making it easier to solve them independently.
+    
+    \item For cases with a discretization of many divisions, it can save on computational cost and time by solving the equations numerically.
+
+
+\end{itemize}
+
+A specific case that can be analyzed from this point of view is the elastodynamics equation, which can make it possible to solve very expensive industrial problems using fewer resources.
